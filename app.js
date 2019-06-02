@@ -92,6 +92,7 @@ database.ref().on("child_added", function(childSnapshot) {
 
 //   // Calculate the months worked using hardcore math
 //   // To calculate the months worked
+    
     var trainArrival = moment().diff(moment(trainTime, "X"), "Arrival");
     console.log(trainArrival);
 //   var empMonths = moment().diff(moment(empStart, "X"), "months");
