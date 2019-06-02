@@ -42,7 +42,7 @@ $("#add-train-btn").on("click", function(event) {
   // Grabs user input
   var trainName = $("#train-name-input").val().trim();
   var trainDes = $("#destination-input").val().trim();
-  var trainTime = moment($("#time-input").val().trim(), "HH:mm").format("X");
+//   var trainTime = moment($("#time-input").val().trim(), "HH:mm").format("X");
   var trainFreq = $("#frequency-input").val().trim();
 
   // Creates local "temporary" object for holding employee data
@@ -99,7 +99,8 @@ database.ref().on("child_added", function(childSnapshot) {
 //   console.log(empMonths);
 
 //   // Calculate the total billed rate
-
+     var minAway = trainTime + trainFreq;
+    console.log(minAway);
 //   var empBilled = empMonths * empRate;
 //   console.log(empBilled);
 
@@ -109,8 +110,8 @@ database.ref().on("child_added", function(childSnapshot) {
     $("<td>").text(trainDes),
     $("<td>").text(trainTimePretty),
     $("<td>").text(trainFreq),
-    // $("<td>").text(empRate),
-    // $("<td>").text(empBilled)
+    $("<td>").text(trainArrival),
+    $("<td>").text(minAway),
   );
 
   // Append the new row to the table
